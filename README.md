@@ -1,7 +1,7 @@
 # Node Mail #
 
 This SMTP client helps you send email safely and easily using
-Node.JS.  The client currently supports TLS and auth-login.
+Node.JS. The client currently supports STARTTLS and auth-login.
 
 ## Installation ##
 
@@ -41,7 +41,7 @@ settings include:
   + `port`: server listens on this port (defualt: 25)
   + `host`: server hostname
   + `domain`: the domain of the sender (default: `hostname -f`)
-  + `secure`: `true`, `false`, or crypto credentials (defualt: true)
+  + `secure`: `true`, `false`, or crypto credentials (default: true)
   + `username`: user for server authentication
   + `password`: password for server authentication
 
@@ -74,11 +74,11 @@ The SMTP client library is similar in spirit to Node's `http` module.
 It doesn't provide safety features like address validation, header
 escaping, or body wrapping.  The `Client` class extends `net.Stream`.
 
-### createClient(port, host, [domain=`hostname -f`, secure=true]) ###
+### createClient(port, host, [domain=`hostname -f`, starttls=true]) ###
 
 Return a new `Client` object.  The `port` and `host` are required.
 The optional `secure` parameter can be `true`, `false`, or a crypto
-credentials object.  If it is `false`, it won't attempt to use TLS
+credentials object.  If it is `false`, it won't attempt to use STARTTLS
 even if the server supports it.
 
     var client = mail.createClient(587, 'smtp.gmail.com');
